@@ -16,20 +16,20 @@ st.snow()
 
 #Header
 st.title("**:green[House Sales Prediction Project]** :christmas_tree:") #blue, green, orange, red, violet.
-image = Image.open('JesseTakemiya/House_sale_Prediction/House_background.jpg')
+image = Image.open('House_background.jpg')
 st.image(image)
 st.subheader("Please enter your name :snowflake:")
 st.text_input("*Name:*", key="name")
 st.subheader("Our dataset	:rainbow:")
-data_new = pd.read_csv("JesseTakemiya/House_sale_Prediction/House_sale_final.csv")
+data_new = pd.read_csv("House_sale_final.csv")
 data_new
 
 #Encoder
 encoder = LabelEncoder()
-encoder.classes_ = np.load("JesseTakemiya/House_sale_Prediction/classes.npy",allow_pickle=True)
+encoder.classes_ = np.load("classes.npy",allow_pickle=True)
 
 best_gbt_model = xgb.XGBRegressor()
-best_gbt_model.load_model('JesseTakemiya/House_sale_Prediction/gbt_model_weight.py')
+best_gbt_model.load_model('gbt_model_weight.py')
 
 n = round(len(data_new["price"])*0.8)
 train_data = data_new.iloc[1:n,]
@@ -38,12 +38,12 @@ if st.checkbox('**Show Training Dataframe**'):
 
 #Map average price by city
 st.subheader("Map: Average price by city :world_map:")
-image1 = Image.open('JesseTakemiya/House_sale_Prediction/Map avg price by city.jpg')
+image1 = Image.open('sMap avg price by city.jpg')
 st.image(image1, caption = 'USA')
 
 #House price visualization
 st.subheader("House price visualization :ocean:")
-image2 = Image.open('JesseTakemiya/House_sale_Prediction/House_sale_visualization.png')
+image2 = Image.open('House_sale_visualization.png')
 st.image(image2, caption = 'More info') #ML_Final/House price heatmap.png
 
 #Side bar
@@ -57,7 +57,7 @@ st.subheader('Choose a city you want :night_with_stars:')
 left_column, right_column = st.columns(2)
 with left_column:
     inp_city = st.selectbox('*City name:*', np.unique(data_new['city']))
-label_encoder = load(open("JesseTakemiya/House_sale_Prediction/city_encoder.pkl", 'rb'))
+label_encoder = load(open("city_encoder.pkl", 'rb'))
 
 st.subheader("Please choose the house characteristics :cityscape:")
 input_bedrooms = st.slider('**Bedrooms amount(int)**', min(data_new["bedrooms"]), max(data_new["bedrooms"]), 1)
