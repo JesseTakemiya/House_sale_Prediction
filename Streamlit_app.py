@@ -21,7 +21,7 @@ st.image(image)
 st.subheader("Please enter your name :snowflake:")
 st.text_input("*Name:*", key="name")
 st.subheader("Our dataset	:rainbow:")
-data_new = pd.read_csv("Final_DA_streamlit/House_sale_final.csv")
+data_new = pd.read_csv("House_sale_Prediction/House_sale_final.csv")
 data_new
 
 #Encoder
