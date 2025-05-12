@@ -38,7 +38,7 @@ if st.checkbox('**Show Training Dataframe**'):
 
 #Map average price by city
 st.subheader("Map: Average price by city :world_map:")
-image1 = Image.open('sMap avg price by city.jpg')
+image1 = Image.open('Map avg price by city.jpg')
 st.image(image1, caption = 'USA')
 
 #House price visualization
