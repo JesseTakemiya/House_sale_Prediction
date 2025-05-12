@@ -16,7 +16,7 @@ st.snow()
 
 #Header
 st.title("**:green[House Sales Prediction Project]** :christmas_tree:") #blue, green, orange, red, violet.
-image = Image.open('Final_DA_streamlit/House_background.jpg')
+image = Image.open('House_sale_Prediction/House_background.jpg')
 st.image(image)
 st.subheader("Please enter your name :snowflake:")
 st.text_input("*Name:*", key="name")
@@ -26,7 +26,7 @@ data_new
 
 #Encoder
 encoder = LabelEncoder()
-encoder.classes_ = np.load("Final_DA_streamlit/classes.npy",allow_pickle=True)
+encoder.classes_ = np.load("House_sale_Prediction/classes.npy",allow_pickle=True)
 
 best_gbt_model = xgb.XGBRegressor()
 best_gbt_model.load_model('Final_DA_streamlit/gbt_model_weight.py')
